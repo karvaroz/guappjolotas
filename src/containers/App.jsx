@@ -1,10 +1,14 @@
 import React from 'react'
-import Login from '../components/Login'
+import Categories from './Categories';
+// import Login from '../components/Login'
 
 const App = () => {
   return (
-    <Login />
-  )
+    <>
+      {/* <Login /> */}
+      <Categories />
+    </>
+  );
 }
 
 export default App
