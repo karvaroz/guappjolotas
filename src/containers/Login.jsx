@@ -27,7 +27,9 @@ const Login = () => {
     }
     // SI NO EXISTE EL USUARIO MANDO UN MENSAJE DE ERROR
     else {
-      alert("Verifique si su correo y contraseña son correctos, o crear una cuenta");
+      alert(
+        "Verifique si su correo y contraseña son correctos, o crear una cuenta"
+      );
     }
   };
 
