@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BtnLogin, FormImg, FormInput, FormWrapper } from "../styles/formStyles";
 
 const Login = () => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  const logged = JSON.parse(localStorage.getItem("logged")) || true;
+  const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -22,8 +24,7 @@ const Login = () => {
     // SI EL USUARIO ES EXISTE LO MANDO AL LOCAL STORAGE PARA QUE SE GUARDE Y CAMBIO EL ESTADO A TRUE
     if (user) {
       setIsLogin(true);
-      localStorage.setItem("logged", JSON.stringify(logged));
-      alert("Bienvenido");
+      navigate("/categories");
     }
     // SI NO EXISTE EL USUARIO MANDO UN MENSAJE DE ERROR
     else {
@@ -58,8 +59,9 @@ const Login = () => {
   return (
     <section>
       {isLogin ? (
-        <form onSubmit={handleSubmit}>
-          <input
+        <FormWrapper onSubmit={handleSubmit}>
+          <FormImg src="/images/logo.png" alt="logo" />
+          <FormInput
             type="email"
             id="email"
             name="email"
@@ -68,7 +70,7 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <input
+          <FormInput
             type="password"
             id="password"
             name="password"
@@ -76,12 +78,13 @@ const Login = () => {
             value={loginData.password}
             onChange={handleChange}
           />
-          <button type="submit">Ingresar</button>
-          <button onClick={handleRegister}>Registrarse</button>
-        </form>
+          <BtnLogin type="submit">Ingresar</BtnLogin>
+          <BtnLogin onClick={handleRegister}>Registrarse</BtnLogin>
+        </FormWrapper>
       ) : (
-        <form>
-          <input
+        <FormWrapper>
+          <FormImg src="/images/logo.png" alt="logo" />
+          <FormInput
             type="text"
             id="name"
             name="name"
@@ -90,7 +93,7 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <input
+          <FormInput
             type="email"
             id="email"
             name="email"
@@ -99,7 +102,7 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <input
+          <FormInput
             type="password"
             id="password"
             name="password"
@@ -107,9 +110,9 @@ const Login = () => {
             value={loginData.password}
             onChange={handleChange}
           />
-          <button onClick={handleSubmitRegister}>Registrarse</button>
-          <button onClick={handleRegister}>Ingresar</button>
-        </form>
+          <BtnLogin onClick={handleSubmitRegister}>Registrarse</BtnLogin>
+          <BtnLogin onClick={handleRegister}>Ingresar</BtnLogin>
+        </FormWrapper>
       )}
     </section>
   );
