@@ -1,71 +1,45 @@
 import React from "react";
+import { CardImg, CardInfoH3, CardInfoP, CardItem, CardItemImg, CardItemInfo, FoodMenu, FoodResults, MenuLi, MenuLiA, NavCag, NavLogo, SearchDiv, SearchH1, SearchInpImg, SearchInput } from "../styles/categoriesStyled";
 
 
 const Categories = () => {
   return (
     <>
       <section>
-        <nav>
-          <img
-            src="/images/logo.png"
-            alt="Logo Guappjolotas"
-            className="logo"
-          />
+        <NavCag>
+          <NavLogo src="/images/logo.png" alt="Logo Guappjolotas" />
           <img src="/icons/shopping-cart.svg" alt="cart" />
-        </nav>
-        <div className="search_txt">
-          <h1>Nada como una Guajolota para empezar el día</h1>
-          <div className="search_input">
-            <input type="text" placeholder="Sabor de guajolota, bebida" />
-            <img
-              src="/icons/search.svg"
-              alt="Seach Icon"
-              className="search_icon"
-            />
+        </NavCag>
+        <SearchDiv>
+          <SearchH1>Nada como una Guajolota para empezar el día</SearchH1>
+          <div>
+            <SearchInput type="text" placeholder="Sabor de guajolota, bebida" />
+            <SearchInpImg src="/icons/search.svg" alt="Seach Icon" />
           </div>
-        </div>
+        </SearchDiv>
+        <FoodMenu>
+          <MenuLi>
+            <MenuLiA href="/*">Guajolotas</MenuLiA>
+          </MenuLi>
+          <MenuLi>
+            <MenuLiA href="/*">Bedidas</MenuLiA>
+          </MenuLi>
+          <MenuLi>
+            <MenuLiA href="/*">Tamales</MenuLiA>
+          </MenuLi>
+        </FoodMenu>
 
-        <ul className="food_menu">
-          <li>
-            <a href="/*">Guajolotas</a>
-          </li>
-          <li>
-            <a href="/*">Bedidas</a>
-          </li>
-          <li>
-            <a href="/*">Tamales</a>
-          </li>
-        </ul>
-
-        <div className="food_results">
-          <div className="card_item">
-            <div className="card_item_img">
-              <img src="/images/Property 1=mole-1.png" alt="Mole" />
-            </div>
-            <div className="card_item_info">
-              <h3>Mole</h3>
-              <p>$25 MXN</p>
-            </div>
-          </div>
-          <div className="card_item">
-            <div className="card_item_img">
-              <img src="/images/Property 1=mole-1.png" alt="Mole" />
-            </div>
-            <div className="card_item_info">
-              <h3>Mole</h3>
-              <p>$25 MXN</p>
-            </div>
-          </div>
-          <div className="card_item">
-            <div className="card_item_img">
-              <img src="/images/Property 1=mole-1.png" alt="Mole" />
-            </div>
-            <div className="card_item_info">
-              <h3>Mole</h3>
-              <p>$25 MXN</p>
-            </div>
-          </div>
-        </div>
+        <FoodResults className="food_results">
+          <CardItem className="card_item">
+            <CardItemImg className="card_item_img">
+              <CardImg src="/images/Property 1=mole-1.png" alt="Mole" />
+            </CardItemImg>
+            <CardItemInfo className="card_item_info">
+              <CardInfoH3>Mole</CardInfoH3>
+              <CardInfoP>$25 MXN</CardInfoP>
+            </CardItemInfo>
+          </CardItem>
+        </FoodResults>
       </section>
     </>
   );
