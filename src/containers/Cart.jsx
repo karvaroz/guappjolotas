@@ -1,5 +1,16 @@
 import React from "react";
-import { Card, CardImg, CardInfo, CardPrice, CardQuan, Cards, CardTitle, NavCart, NavCartP, Total } from "../styles/cartStyles";
+import {
+  Card,
+  CardImg,
+  CardInfo,
+  CardPrice,
+  CardQuan,
+  Cards,
+  CardTitle,
+  NavCart,
+  NavCartP,
+  Total,
+} from "../styles/cartStyles";
 import { BtnPay } from "../styles/selectFoodStyles";
 
 const Cart = () => {
@@ -18,9 +29,7 @@ const Cart = () => {
             <CardTitle>Guajolota de Tamal Verde</CardTitle>
             <CardQuan>x2</CardQuan>
           </CardInfo>
-          <CardPrice>
-            $50.00 MXN
-          </CardPrice>
+          <CardPrice>$50.00 MXN</CardPrice>
         </Card>
       </Cards>
       <Total>

@@ -36,6 +36,7 @@ section {
 img,
 button {
   cursor: pointer;
+  outline: none;
 }
 
 
