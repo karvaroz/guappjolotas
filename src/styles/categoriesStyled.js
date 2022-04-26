@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import "../index.css"
 // CATEGORIES
+
 export const NavCag = styled.nav`
   margin: 24px;
   display: flex;

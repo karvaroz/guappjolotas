@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import "../index.css";
-
 // CATEGORIES
 
 export const NavSelectFood = styled.nav`

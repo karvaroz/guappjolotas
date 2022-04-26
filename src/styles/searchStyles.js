@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "../index.css";
 // SEARCH
 
 export const SearchDiv = styled.div`

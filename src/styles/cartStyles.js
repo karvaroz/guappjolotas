@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import "../index.css";
-// CART
 
+// CART
 export const NavCart = styled.nav`
   margin: 24px;
   display: flex;
