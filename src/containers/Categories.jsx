@@ -29,12 +29,12 @@ const Categories = () => {
           </MenuLi>
         </FoodMenu>
 
-        <FoodResults className="food_results">
-          <CardItem className="card_item">
-            <CardItemImg className="card_item_img">
+        <FoodResults>
+          <CardItem>
+            <CardItemImg>
               <CardImg src="/images/Property 1=mole-1.png" alt="Mole" />
             </CardItemImg>
-            <CardItemInfo className="card_item_info">
+            <CardItemInfo>
               <CardInfoH3>Mole</CardInfoH3>
               <CardInfoP>$25 MXN</CardInfoP>
             </CardItemInfo>

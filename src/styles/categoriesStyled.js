@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import "../index.css"
-
 // CATEGORIES
-
 export const NavCag = styled.nav`
   margin: 24px;
   display: flex;
   justify-content: space-between;
 `;
-
 
 export const NavLogo = styled.img`
   width: 64px;
@@ -122,7 +119,6 @@ export const CardInfoH3 = styled.h3`
   color: var(--black);
   background: #ffffff;
 `;
-
 
 export const CardInfoP = styled.p`
   font-weight: 600;

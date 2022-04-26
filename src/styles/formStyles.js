@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import "../index.css";
 // FORM AND LOGIN
 export const FormWrapper = styled.form`
   margin: 24px;

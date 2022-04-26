@@ -1,98 +1,78 @@
 import React from "react";
+import {
+  BtnPay,
+  ComboDiv,
+  ComboP,
+  ControlsBtn,
+  ItemCombo,
+  ItemControls,
+  ItemDescription,
+  ItemDesImg,
+  ItemDiv,
+  ItemH3,
+  ItemInfo,
+  ItemInfoDiv,
+  ItemInfoH3,
+  ItemInfoP,
+  ItemP,
+  ItemTaste,
+  ItemTasteContainer,
+  ItemTasteP,
+  NavSelectFood,
+} from "../styles/selectFoodStyles";
 
 const SelectFood = () => {
   return (
     <>
       <section>
-        <nav>
+        <NavSelectFood>
           <img src="/icons/chevron-left.svg" alt="chevron-left" />
           <img src="/icons/shopping-cart.svg" alt="shopping-cart" />
-        </nav>
-        <div className="item_description">
-          <img src="/images/tamal-verde.png" alt="food" />
-          <div className="item_info">
-            <h3>Guajolota de Tamal Verde</h3>
-            <p>$25 MXN</p>
-          </div>
-          <div className="item_controls">
-            <button>-</button>
+        </NavSelectFood>
+        <ItemDescription>
+          <ItemDesImg src="/images/tamal-verde.png" alt="food" />
+          <ItemInfo>
+            <ItemH3>Guajolota de Tamal Verde</ItemH3>
+            <ItemP>$25 MXN</ItemP>
+          </ItemInfo>
+          <ItemControls>
+            <ControlsBtn>-</ControlsBtn>
             <p>2</p>
-            <button>+</button>
-          </div>
-        </div>
-        <div className="item_taste">
-          <p>Sabor</p>
-          <div className="item_taste_container">
+            <ControlsBtn>+</ControlsBtn>
+          </ItemControls>
+        </ItemDescription>
+        <ItemTaste>
+          <ItemTasteP>Sabor</ItemTasteP>
+          <ItemTasteContainer>
             <img src="/images/Name=verde.png" alt="taste" />
             <img src="/images/Name=mole.png" alt="taste" />
             <img src="/images/Name=rajas.png" alt="taste" />
             <img src="/images/Name=piña.png" alt="taste" />
             <img src="/images/Name=pasas.png" alt="taste" />
             <img src="/images/Name=guayaba.png" alt="taste" />
-          </div>
-        </div>
-        <div className="item_combo">
+          </ItemTasteContainer>
+        </ItemTaste>
+        <ItemCombo>
           <h3>Guajolocombo</h3>
-          <p>
+          <ComboP>
             Selecciona el acompañante que más te guste y disfruta de tu desayuno
-          </p>
-          <div className="item_combo_container">
-            <div className="item">
-              <div className="item_img">
+          </ComboP>
+          <ComboDiv>
+            <ItemDiv>
+              <ItemInfoDiv>
                 <img src="/images/Property 1=mole-1.png" alt="Mole" />
+                <ItemInfoH3>Mole</ItemInfoH3>
+                <ItemInfoP>$25 MXN</ItemInfoP>
+              </ItemInfoDiv>
+              <div className="item_check">
+                <img src="/icons/check-square.svg" alt="check" />
               </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item_img">
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-              </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item_img">
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-              </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item_img">
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-              </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item_img">
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-              </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item_img">
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-              </div>
-              <div className="item_def">
-                <h3>Mole</h3>
-                <p>$25 MXN</p>
-              </div>
-            </div>
-          </div>
-        </div>
+            </ItemDiv>
+          </ComboDiv>
+          <BtnPay>
+            Agregar 1 al carrito <span>$25.00</span>
+          </BtnPay>
+        </ItemCombo>
       </section>
     </>
   );
