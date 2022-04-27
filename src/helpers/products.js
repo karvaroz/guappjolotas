@@ -73,14 +73,6 @@ export const products = [
     flaverImg: "https://i.imgur.com/Afbozfl.png",
   },
   {
-    id: 10,
-    category: "Tamales",
-    price: 14,
-    image: "https://i.imgur.com/kfNaOgv.png",
-    name: "Tamal Verde",
-    flaverImg: "https://i.imgur.com/9yTjCoK.png",
-  },
-  {
     id: 11,
     category: "Tamales",
     price: 14,

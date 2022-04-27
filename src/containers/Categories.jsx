@@ -11,7 +11,7 @@ import {
   SearchInput,
 } from "../styles/categoriesStyled";
 import { ProductList } from "../components/ProductList";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Categories = () => {
   const [categoryClick, setCategoryClick] = useState("");
@@ -41,7 +41,9 @@ const Categories = () => {
       <section>
         <NavCag>
           <NavLogo src="/images/logo.png" alt="Logo Guappjolotas" />
-          <img src="/icons/shopping-cart.svg" alt="cart" />
+          <Link to="/cart">
+            <img src="/icons/shopping-cart.svg" alt="cart" />
+          </Link>
         </NavCag>
         <SearchDiv>
           <SearchH1>Nada como una Guajolota para empezar el día</SearchH1>

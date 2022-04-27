@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SearchDiv, SearchInput, SearchResults } from "../styles/searchStyles";
 import querystring from "query-string";
 import { useSearchInput } from "../hooks/useSearchInput";
@@ -28,17 +28,17 @@ const Search = () => {
   return (
     <section>
       <SearchDiv>
-        <form onSubmit={handleSearch}>
-          <SearchInput
-            type="text"
-            placeholder="Sabor de guajolota..."
-            name="searchText"
-            value={searchText}
-            onChange={handleInputChange || ""}
-          />
-        </form>
-        <button type="submit">Buscar</button>
-        {/* <p>Cancelar</p> */}
+        <SearchInput
+          onSubmit={handleSearch}
+          type="text"
+          placeholder="Sabor de guajolota..."
+          name="searchText"
+          value={searchText}
+          onChange={"" || handleInputChange}
+        />
+        <Link to="/categories">
+          <p>Volver</p>
+        </Link>
       </SearchDiv>
       <SearchResults>
         {!searchText ? (

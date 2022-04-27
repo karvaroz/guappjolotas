@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardImg,
@@ -17,9 +18,15 @@ const Cart = () => {
   return (
     <section>
       <NavCart>
-        <img src="/icons/chevron-left.svg" alt="" />
+        <Link to="/categories">
+          <img src="/icons/chevron-left.svg" alt="back" />
+        </Link>
         <NavCartP>Carrito</NavCartP>
+        <Link to="/profile">
+          <img src="/icons/user.png" alt="user" width={20} height={20} />
+        </Link>
       </NavCart>
+
       <Cards>
         <Card>
           <CardImg>
