@@ -13,7 +13,7 @@ Platillo típico de la gastronomía de la Ciudad de México que consiste de un t
 
 - Añadir como complemento del diseño crear perfil e iniciar sesión. -Listo
 
-- Agrega los productos y haz funcionar el buscador para encontrar tu guajolota favorita. 
+- Agrega los productos y haz funcionar el buscador para encontrar tu guajolota favorita. -Listo
 **Utiliza ReactMemo para optimizar tu buscador**
 
 - Establece enrutamiento dinámico

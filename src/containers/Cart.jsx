@@ -34,7 +34,7 @@ const Cart = () => {
       </Cards>
       <Total>
         <p>Total </p>
-        <span>$62 MXN</span>
+        <span>$50 MXN</span>
       </Total>
       <BtnPay>Pagar</BtnPay>
     </section>

@@ -24,21 +24,17 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getProductById } from "../selectors/getProductById";
 
 const SelectFood = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {id} = useParams();
+  console.log(id);
+  const prod = getProductById(id);
+  console.log(prod);
+  const { name, price, image, flaverImg } = prod;
+  console.log(name);
 
-    const { id } = useParams();
-    console.log(id);
-
-    const prod = getProductById(id);
-    console.log(prod);
-
-    const { name, price, image, flaverImg } = prod;
-
-    console.log(name);
-
-    const handleReturn = () => {
-      navigate(-1);
-    };
+  const handleReturn = () => {
+    navigate(-1);
+  };
 
   return (
     <>

@@ -11,7 +11,7 @@ import {
 
 export const ProductCard = ({ id, name, image, price }) => {
   return (
-    <Link to={`/select-food/${id}`}>
+    <Link to={`/select-food/${id}/`}>
       <CardItem data-id={id}>
         <CardItemImg>
           <CardImg src={image} alt="Product" />
