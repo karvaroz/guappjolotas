@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BtnLogin, FormImg, FormInput, FormWrapper } from "../styles/formStyles";
 
 const Login = () => {
-  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const users = JSON.parse(localStorage.getItem("users"));
   const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({

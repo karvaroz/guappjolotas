@@ -20,20 +20,42 @@ import {
   ItemTasteP,
   NavSelectFood,
 } from "../styles/selectFoodStyles";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProductById } from "../selectors/getProductById";
 
 const SelectFood = () => {
+    const navigate = useNavigate();
+
+    const { id } = useParams();
+    console.log(id);
+
+    const prod = getProductById(id);
+    console.log(prod);
+
+    const { name, price, image, flaverImg } = prod;
+
+    console.log(name);
+
+    const handleReturn = () => {
+      navigate(-1);
+    };
+
   return (
     <>
       <section>
         <NavSelectFood>
-          <img src="/icons/chevron-left.svg" alt="chevron-left" />
+          <img
+            src="/icons/chevron-left.svg"
+            alt="chevron-left"
+            onClick={() => handleReturn()}
+          />
           <img src="/icons/shopping-cart.svg" alt="shopping-cart" />
         </NavSelectFood>
         <ItemDescription>
-          <ItemDesImg src="/images/tamal-verde.png" alt="food" />
+          <ItemDesImg src={image} alt="food" />
           <ItemInfo>
-            <ItemH3>Guajolota de Tamal Verde</ItemH3>
-            <ItemP>$25 MXN</ItemP>
+            <ItemH3>{name}</ItemH3>
+            <ItemP>${price} MXN</ItemP>
           </ItemInfo>
           <ItemControls>
             <ControlsBtn>-</ControlsBtn>
@@ -44,12 +66,7 @@ const SelectFood = () => {
         <ItemTaste>
           <ItemTasteP>Sabor</ItemTasteP>
           <ItemTasteContainer>
-            <img src="/images/Name=verde.png" alt="taste" />
-            <img src="/images/Name=mole.png" alt="taste" />
-            <img src="/images/Name=rajas.png" alt="taste" />
-            <img src="/images/Name=piña.png" alt="taste" />
-            <img src="/images/Name=pasas.png" alt="taste" />
-            <img src="/images/Name=guayaba.png" alt="taste" />
+            <img src={flaverImg} alt="taste" />
           </ItemTasteContainer>
         </ItemTaste>
         <ItemCombo>

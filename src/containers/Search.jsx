@@ -34,7 +34,7 @@ const Search = () => {
             placeholder="Sabor de guajolota..."
             name="searchText"
             value={searchText}
-            onChange={handleInputChange ?? ""}
+            onChange={handleInputChange || ""}
           />
         </form>
         <button type="submit">Buscar</button>
