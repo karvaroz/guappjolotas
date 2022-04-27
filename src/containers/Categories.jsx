@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 const Categories = () => {
   const [categoryClick, setCategoryClick] = useState("");
   const navigate = useNavigate();
+  console.log(categoryClick);
 
   const handleClickGuajolotas = () => {
     setCategoryClick("Guajolotas");
@@ -31,10 +32,10 @@ const Categories = () => {
     console.log("Tamales");
   };
 
-  const handleClickSearch=()=>{
+  const handleClickSearch = () => {
     console.log("Buscar");
     navigate("/search");
-  }
+  };
   return (
     <>
       <section>
@@ -64,7 +65,7 @@ const Categories = () => {
             <MenuLiA onClick={handleClickTamales}>Tamales</MenuLiA>
           </MenuLi>
         </FoodMenu>
-        <ProductList category={"Guajolotas"} />
+        <ProductList category={"Tamales"} />
       </section>
     </>
   );

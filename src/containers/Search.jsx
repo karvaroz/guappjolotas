@@ -1,24 +1,53 @@
 import React from "react";
-import { CardImg, CardInfoH3, CardInfoP, CardItem, CardItemImg, CardItemInfo } from "../styles/categoriesStyled";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SearchDiv, SearchInput, SearchResults } from "../styles/searchStyles";
+import querystring from "query-string";
+import { useSearchInput } from "../hooks/useSearchInput";
+import { getProductByName } from "../selectors/getProductByName";
+import { ProductCard } from "../components/ProductCard";
 
 const Search = () => {
+  const location = useLocation();
+
+  const { q = "" } = querystring.parse(location.search);
+
+  const navigate = useNavigate();
+
+  const [values, handleInputChange] = useSearchInput({
+    searchText: q,
+  });
+  const { searchText } = values;
+
+  const productsFiltered = getProductByName(searchText);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`?q=${searchText}`);
+  };
+
   return (
     <section>
       <SearchDiv>
-        <SearchInput type="text" placeholder="Sabor de guajolota..." />
-        <p>Cancelar</p>
+        <form onSubmit={handleSearch}>
+          <SearchInput
+            type="text"
+            placeholder="Sabor de guajolota..."
+            name="searchText"
+            value={searchText}
+            onChange={handleInputChange ?? ""}
+          />
+        </form>
+        <button type="submit">Buscar</button>
+        {/* <p>Cancelar</p> */}
       </SearchDiv>
       <SearchResults>
-        <CardItem>
-          <CardItemImg>
-            <CardImg src="/images/Property 1=mole-1.png" alt="Mole" />
-          </CardItemImg>
-          <CardItemInfo>
-            <CardInfoH3>Mole</CardInfoH3>
-            <CardInfoP>$25 MXN</CardInfoP>
-          </CardItemInfo>
-        </CardItem>
+        {!searchText ? (
+          <p>Ingrese una palabra clave</p>
+        ) : (
+          productsFiltered.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))
+        )}
       </SearchResults>
     </section>
   );
