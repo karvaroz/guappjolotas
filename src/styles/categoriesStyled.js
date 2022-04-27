@@ -46,7 +46,7 @@ export const SearchInpImg = styled.img`
   height: 18px;
   position: absolute;
   left: 13%;
-  top: 25.1%;
+  top: 23.1%;
 `;
 
 export const FoodMenu = styled.ul`
@@ -77,7 +77,7 @@ export const MenuLi = styled.li`
 
 export const FoodResults = styled.div`
   width: 312px;
-  height: 592px;
+  height: 800px;
   margin: 24px;
   overflow-y: auto;
 `;

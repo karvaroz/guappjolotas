@@ -1,6 +1,16 @@
 import React from "react";
-import { CardImg, CardInfoH3, CardInfoP, CardItem, CardItemImg, CardItemInfo, FoodMenu, FoodResults, MenuLi, MenuLiA, NavCag, NavLogo, SearchDiv, SearchH1, SearchInpImg, SearchInput } from "../styles/categoriesStyled";
-
+import {
+  FoodMenu,
+  MenuLi,
+  MenuLiA,
+  NavCag,
+  NavLogo,
+  SearchDiv,
+  SearchH1,
+  SearchInpImg,
+  SearchInput,
+} from "../styles/categoriesStyled";
+import { ProductList } from "../components/ProductList";
 
 const Categories = () => {
   return (
@@ -22,24 +32,13 @@ const Categories = () => {
             <MenuLiA href="/*">Guajolotas</MenuLiA>
           </MenuLi>
           <MenuLi>
-            <MenuLiA href="/*">Bedidas</MenuLiA>
+            <MenuLiA href="/*">Bebidas</MenuLiA>
           </MenuLi>
           <MenuLi>
             <MenuLiA href="/*">Tamales</MenuLiA>
           </MenuLi>
         </FoodMenu>
-
-        <FoodResults>
-          <CardItem>
-            <CardItemImg>
-              <CardImg src="/images/Property 1=mole-1.png" alt="Mole" />
-            </CardItemImg>
-            <CardItemInfo>
-              <CardInfoH3>Mole</CardInfoH3>
-              <CardInfoP>$25 MXN</CardInfoP>
-            </CardItemInfo>
-          </CardItem>
-        </FoodResults>
+        <ProductList category={"Tamales"} />
       </section>
     </>
   );
