@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FoodMenu,
   MenuLi,
@@ -11,8 +11,30 @@ import {
   SearchInput,
 } from "../styles/categoriesStyled";
 import { ProductList } from "../components/ProductList";
+import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
+  const [categoryClick, setCategoryClick] = useState("");
+  const navigate = useNavigate();
+
+  const handleClickGuajolotas = () => {
+    setCategoryClick("Guajolotas");
+    console.log("Guajolotas");
+  };
+
+  const handleClickBebidas = () => {
+    setCategoryClick("Bebidas");
+    console.log("Bebidas");
+  };
+  const handleClickTamales = () => {
+    setCategoryClick("Tamales");
+    console.log("Tamales");
+  };
+
+  const handleClickSearch=()=>{
+    console.log("Buscar");
+    navigate("/search");
+  }
   return (
     <>
       <section>
@@ -23,22 +45,26 @@ const Categories = () => {
         <SearchDiv>
           <SearchH1>Nada como una Guajolota para empezar el día</SearchH1>
           <div>
-            <SearchInput type="text" placeholder="Sabor de guajolota, bebida" />
+            <SearchInput
+              onClick={handleClickSearch}
+              type="text"
+              placeholder="Sabor de guajolota, bebida"
+            />
             <SearchInpImg src="/icons/search.svg" alt="Seach Icon" />
           </div>
         </SearchDiv>
         <FoodMenu>
           <MenuLi>
-            <MenuLiA href="/*">Guajolotas</MenuLiA>
+            <MenuLiA onClick={handleClickGuajolotas}>Guajolotas</MenuLiA>
           </MenuLi>
           <MenuLi>
-            <MenuLiA href="/*">Bebidas</MenuLiA>
+            <MenuLiA onClick={handleClickBebidas}>Bebidas</MenuLiA>
           </MenuLi>
           <MenuLi>
-            <MenuLiA href="/*">Tamales</MenuLiA>
+            <MenuLiA onClick={handleClickTamales}>Tamales</MenuLiA>
           </MenuLi>
         </FoodMenu>
-        <ProductList category={"Tamales"} />
+        <ProductList category={"Guajolotas"} />
       </section>
     </>
   );
