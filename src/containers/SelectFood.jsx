@@ -33,7 +33,7 @@ const SelectFood = () => {
   };
   useEffect(() => {
     productById(params.id, setProductInfoById);
-  }, []);
+  }, [params.id]);
 
   return (
     <>

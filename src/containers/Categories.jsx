@@ -11,9 +11,13 @@ import {
   SearchInput,
 } from "../styles/categoriesStyled";
 import { ProductList } from "../components/ProductList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Categories = () => {
+  const navigate = useNavigate()
+  const handleClickSearch = () => {
+    navigate("/search");
+  }
   return (
     <>
       <section>
@@ -26,7 +30,11 @@ const Categories = () => {
         <SearchDiv>
           <SearchH1>Nada como una Guajolota para empezar el día</SearchH1>
           <div>
-            <SearchInput type="text" placeholder="Sabor de guajolota, bebida" />
+            <SearchInput
+              type="text"
+              placeholder="Sabor de guajolota, bebida"
+              onClick={handleClickSearch}
+            />
             <SearchInpImg src="/icons/search.svg" alt="Seach Icon" />
           </div>
         </SearchDiv>

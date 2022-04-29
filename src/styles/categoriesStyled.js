@@ -76,10 +76,10 @@ export const MenuLi = styled.li`
 `;
 
 export const FoodResults = styled.div`
-  width: 312px;
-  height: 800px;
+  width: 315px;
+  height: auto;
   margin: 24px;
-  overflow-y: auto;
+  overflow-y: hidden;
 `;
 
 export const CardItem = styled.div`
