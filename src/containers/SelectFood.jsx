@@ -20,21 +20,21 @@ import {
   ItemTasteP,
   NavSelectFood,
 } from "../styles/selectFoodStyles";
-import { useParams, useNavigate } from "react-router-dom";
-import { getProductById } from "../selectors/getProductById";
+// import { useParams, useNavigate } from "react-router-dom";
+// import { getProductById } from "../selectors/getProductById";
 
 const SelectFood = () => {
-  const navigate = useNavigate();
-  const {id} = useParams();
-  console.log(id);
-  const prod = getProductById(id);
-  console.log(prod);
-  const { name, price, image, flaverImg } = prod;
-  console.log(name);
+  // const navigate = useNavigate();
+  // const {id} = useParams();
+  // console.log(id);
+  // const prod = getProductById(id);
+  // console.log(prod);
+  // const { name, price, image, flaverImg } = prod;
+  // console.log(name);
 
-  const handleReturn = () => {
-    navigate(-1);
-  };
+  // const handleReturn = () => {
+  //   navigate(-1);
+  // };
 
   return (
     <>
@@ -43,15 +43,15 @@ const SelectFood = () => {
           <img
             src="/icons/chevron-left.svg"
             alt="chevron-left"
-            onClick={() => handleReturn()}
+            // onClick={}
           />
           <img src="/icons/shopping-cart.svg" alt="shopping-cart" />
         </NavSelectFood>
         <ItemDescription>
-          <ItemDesImg src={image} alt="food" />
+          <ItemDesImg  alt="food" />
           <ItemInfo>
-            <ItemH3>{name}</ItemH3>
-            <ItemP>${price} MXN</ItemP>
+            <ItemH3></ItemH3>
+            <ItemP>$MXN</ItemP>
           </ItemInfo>
           <ItemControls>
             <ControlsBtn>-</ControlsBtn>
@@ -62,7 +62,7 @@ const SelectFood = () => {
         <ItemTaste>
           <ItemTasteP>Sabor</ItemTasteP>
           <ItemTasteContainer>
-            <img src={flaverImg} alt="taste" />
+            <img  alt="taste" />
           </ItemTasteContainer>
         </ItemTaste>
         <ItemCombo>
