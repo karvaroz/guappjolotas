@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BtnPay,
   ComboDiv,
@@ -20,73 +20,79 @@ import {
   ItemTasteP,
   NavSelectFood,
 } from "../styles/selectFoodStyles";
-// import { useParams, useNavigate } from "react-router-dom";
-// import { getProductById } from "../selectors/getProductById";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { productById } from "../helpers/GetData";
 
 const SelectFood = () => {
-  // const navigate = useNavigate();
-  // const {id} = useParams();
-  // console.log(id);
-  // const prod = getProductById(id);
-  // console.log(prod);
-  // const { name, price, image, flaverImg } = prod;
-  // console.log(name);
+  const params = useParams();
+  const navigate = useNavigate();
+  const [productInfoById, setProductInfoById] = useState(null);
 
-  // const handleReturn = () => {
-  //   navigate(-1);
-  // };
+  const handleReturn = () => {
+    navigate(-1);
+  };
+  useEffect(() => {
+    productById(params.id, setProductInfoById);
+  }, []);
 
   return (
     <>
-      <section>
-        <NavSelectFood>
-          <img
-            src="/icons/chevron-left.svg"
-            alt="chevron-left"
-            // onClick={}
-          />
-          <img src="/icons/shopping-cart.svg" alt="shopping-cart" />
-        </NavSelectFood>
-        <ItemDescription>
-          <ItemDesImg  alt="food" />
-          <ItemInfo>
-            <ItemH3></ItemH3>
-            <ItemP>$MXN</ItemP>
-          </ItemInfo>
-          <ItemControls>
-            <ControlsBtn>-</ControlsBtn>
-            <p>2</p>
-            <ControlsBtn>+</ControlsBtn>
-          </ItemControls>
-        </ItemDescription>
-        <ItemTaste>
-          <ItemTasteP>Sabor</ItemTasteP>
-          <ItemTasteContainer>
-            <img  alt="taste" />
-          </ItemTasteContainer>
-        </ItemTaste>
-        <ItemCombo>
-          <h3>Guajolocombo</h3>
-          <ComboP>
-            Selecciona el acompañante que más te guste y disfruta de tu desayuno
-          </ComboP>
-          <ComboDiv>
-            <ItemDiv>
-              <ItemInfoDiv>
-                <img src="/images/Property 1=mole-1.png" alt="Mole" />
-                <ItemInfoH3>Mole</ItemInfoH3>
-                <ItemInfoP>$25 MXN</ItemInfoP>
-              </ItemInfoDiv>
-              <div className="item_check">
-                <img src="/icons/check-square.svg" alt="check" />
-              </div>
-            </ItemDiv>
-          </ComboDiv>
-          <BtnPay>
-            Agregar 1 al carrito <span>$25.00</span>
-          </BtnPay>
-        </ItemCombo>
-      </section>
+      {productInfoById !== null ? (
+        <section>
+          <NavSelectFood>
+            <img
+              src="/icons/chevron-left.svg"
+              alt="chevron-left"
+              onClick={handleReturn}
+            />
+            <Link to="/cart">
+              <img src="/icons/shopping-cart.svg" alt="shopping-cart" />
+            </Link>
+          </NavSelectFood>
+          <ItemDescription>
+            <ItemDesImg alt="food" src={productInfoById.image} />
+            <ItemInfo>
+              <ItemH3>{productInfoById.name} </ItemH3>
+              <ItemP>$ {productInfoById.price} MXN</ItemP>
+            </ItemInfo>
+            <ItemControls>
+              <ControlsBtn>-</ControlsBtn>
+              <p>2</p>
+              <ControlsBtn>+</ControlsBtn>
+            </ItemControls>
+          </ItemDescription>
+          <ItemTaste>
+            <ItemTasteP>Sabor</ItemTasteP>
+            <ItemTasteContainer>
+              <img alt="taste" src={productInfoById.flaverImg} />
+            </ItemTasteContainer>
+          </ItemTaste>
+          <ItemCombo>
+            <h3>Guajolocombo</h3>
+            <ComboP>
+              Selecciona el acompañante que más te guste y disfruta de tu
+              desayuno
+            </ComboP>
+            <ComboDiv>
+              <ItemDiv>
+                <ItemInfoDiv>
+                  <img src="/images/Property 1=mole-1.png" alt="Mole" />
+                  <ItemInfoH3>Mole</ItemInfoH3>
+                  <ItemInfoP>$25 MXN</ItemInfoP>
+                </ItemInfoDiv>
+                <div className="item_check">
+                  <img src="/icons/check-square.svg" alt="check" />
+                </div>
+              </ItemDiv>
+            </ComboDiv>
+            <BtnPay>
+              Agregar 1 al carrito <span>$25.00</span>
+            </BtnPay>
+          </ItemCombo>
+        </section>
+      ) : (
+        "Cargando..."
+      )}
     </>
   );
 };
