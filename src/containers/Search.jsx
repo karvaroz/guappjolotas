@@ -1,53 +1,49 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { SearchDiv, SearchInput, SearchResults } from "../styles/searchStyles";
-import querystring from "query-string";
-import { useSearchInput } from "../hooks/useSearchInput";
-import { getProductByName } from "../selectors/getProductByName";
+// import { ProductCard } from "../components/ProductCard";
+import { allProducts } from "../helpers/GetData";
 import { ProductCard } from "../components/ProductCard";
 
 const Search = () => {
-  const location = useLocation();
+  const [products, setProducts] = useState(null);
 
-  const { q = "" } = querystring.parse(location.search);
-
-  const navigate = useNavigate();
-
-  const [values, handleInputChange] = useSearchInput({
-    searchText: q,
-  });
-  const { searchText } = values;
-
-  const productsFiltered = getProductByName(searchText);
+  useEffect(() => {
+    allProducts(setProducts);
+  }, []);
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`?q=${searchText}`);
+    const search = e.target.value;
+    if (search) {
+      const productsFiltered = products.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      );
+      setProducts(productsFiltered);
+    } else {
+      setProducts({})
+    }
   };
 
   return (
     <section>
       <SearchDiv>
         <SearchInput
-          onSubmit={handleSearch}
           type="text"
           placeholder="Sabor de guajolota..."
-          name="searchText"
-          value={searchText}
-          onChange={"" || handleInputChange}
+          name="search"
+          onChange={handleSearch}
         />
+
         <Link to="/categories">
           <p>Volver</p>
         </Link>
       </SearchDiv>
       <SearchResults>
-        {!searchText ? (
-          <p>Ingrese una palabra clave</p>
-        ) : (
-          productsFiltered.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))
-        )}
+        {products === null
+          ? "Cargando..."
+          : products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
       </SearchResults>
     </section>
   );

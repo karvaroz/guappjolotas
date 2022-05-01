@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   BtnPay,
   ComboDiv,
@@ -22,11 +22,13 @@ import {
 } from "../styles/selectFoodStyles";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { productById } from "../helpers/GetData";
+import  CartContext from "../Context/CartContext"
 
 const SelectFood = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [productInfoById, setProductInfoById] = useState(null);
+    const { addItemToCart } = useContext(CartContext);
 
   const handleReturn = () => {
     navigate(-1);
@@ -34,6 +36,7 @@ const SelectFood = () => {
   useEffect(() => {
     productById(params.id, setProductInfoById);
   }, [params.id]);
+
 
   return (
     <>
@@ -85,8 +88,8 @@ const SelectFood = () => {
                 </div>
               </ItemDiv>
             </ComboDiv>
-            <BtnPay>
-              Agregar 1 al carrito <span>$25.00</span>
+            <BtnPay onClick={() => addItemToCart(productInfoById)}>
+              Agregar 1 al carrito <span>$ {productInfoById.price}.00</span>
             </BtnPay>
           </ItemCombo>
         </section>

@@ -13,7 +13,6 @@ export const ProductList = () => {
 
   const handleCategory = (e) => {
     let category = e.target.value;
-    console.log(category);
     if (category === "Todo") {
       allProducts(setProducts);
     } else if (category === "Guajolotas") {
@@ -37,43 +36,51 @@ export const ProductList = () => {
   return (
     <>
       <FoodMenu>
-        <input
-          type="radio"
-          name="category"
-          id="Todo"
-          value="Todo"
-          onClick={handleCategory}
-        />{" "}
-        Todo
-        <input
-          type="radio"
-          name="category"
-          id="Guajolotas"
-          value="Guajolotas"
-          onClick={handleCategory}
-        />
-        Guajolotas
-        <input
-          type="radio"
-          name="category"
-          id="Bebidas"
-          value="Bebidas"
-          onClick={handleCategory}
-        />
-        Bebidas
-        <input
-          type="radio"
-          name="category"
-          id="Tamales"
-          value="Tamales"
-          onClick={handleCategory}
-        />
-        Tamales
+        <label htmlFor="Todo">
+          <input
+            type="radio"
+            name="category"
+            id="Todo"
+            value="Todo"
+            onClick={handleCategory}
+          />
+          Todo
+        </label>
+        <label htmlFor="Guajolotas">
+          <input
+            type="radio"
+            name="category"
+            id="Guajolotas"
+            value="Guajolotas"
+            onClick={handleCategory}
+          />
+          Guajolotas
+        </label>
+        <label htmlFor="Bebidas">
+          <input
+            type="radio"
+            name="category"
+            id="Bebidas"
+            value="Bebidas"
+            onClick={handleCategory}
+          />
+          Bebidas
+        </label>
+        <label htmlFor="Tamales">
+          <input
+            type="radio"
+            name="category"
+            id="Tamales"
+            value="Tamales"
+            onClick={handleCategory}
+          />
+          Tamales
+        </label>
       </FoodMenu>
       {products !== null ? (
         <FoodResults>
           {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </FoodResults>
       ) : (

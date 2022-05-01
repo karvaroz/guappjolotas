@@ -9,7 +9,8 @@ import {
   CardItemInfo,
 } from "../styles/categoriesStyled";
 
-export const ProductCard = ({ id, name, image, price }) => {
+export const ProductCard = ({ product }) => {
+  const{  name, price, image, id } = product;
   return (
     <Link to={`/select-food/${id}/`}>
       <CardItem data-id={id}>

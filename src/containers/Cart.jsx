@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../Context/CartContext";
 import {
   Card,
   CardImg,
@@ -15,6 +16,19 @@ import {
 import { BtnPay } from "../styles/selectFoodStyles";
 
 const Cart = () => {
+  const [productsLength, setProductsLength] = useState(0);
+  const { cartItems } = useContext(CartContext);
+  useEffect(() => {
+    setProductsLength(
+      cartItems?.reduce((previous, current) => previous + current.amount, 0)
+    );
+  }, [cartItems]);
+
+  const total = cartItems?.reduce(
+    (previous, current) => previous + current.amount * current.price,
+    0
+  );
+
   return (
     <section>
       <NavCart>
@@ -22,26 +36,34 @@ const Cart = () => {
           <img src="/icons/chevron-left.svg" alt="back" />
         </Link>
         <NavCartP>Carrito</NavCartP>
+        <p>{productsLength} productos en el carrito</p>
         <Link to="/profile">
           <img src="/icons/user.png" alt="user" width={20} height={20} />
         </Link>
       </NavCart>
 
       <Cards>
-        <Card>
-          <CardImg>
-            <img src="/images/tamal-verde.png" alt="" />
-          </CardImg>
-          <CardInfo>
-            <CardTitle>Guajolota de Tamal Verde</CardTitle>
-            <CardQuan>x2</CardQuan>
-          </CardInfo>
-          <CardPrice>$50.00 MXN</CardPrice>
-        </Card>
+        {cartItems === 0 ? (
+          <div>"Tu carrito esta vacio"</div>
+        ) : (
+          cartItems.map((product) => (
+            <Card id={product.id}>
+              <CardImg>
+                <img src={product.image} alt="" />
+              </CardImg>
+              <CardInfo>
+                <CardTitle>{product.name} </CardTitle>
+                <CardQuan>{product.amount}</CardQuan>
+              </CardInfo>
+              <CardPrice>${product.price * product.amount}.00 MXN</CardPrice>
+            </Card>
+          ))
+        )}
       </Cards>
+
       <Total>
         <p>Total </p>
-        <span>$50 MXN</span>
+        <span>${total} MXN</span>
       </Total>
       <BtnPay>Pagar</BtnPay>
     </section>

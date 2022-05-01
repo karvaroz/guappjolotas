@@ -1,8 +1,5 @@
 import React from "react";
 import {
-  // FoodMenu,
-  // MenuLi,
-  // MenuLiA,
   NavCag,
   NavLogo,
   SearchDiv,
