@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  FoodMenu,
-  MenuLi,
-  MenuLiA,
+  // FoodMenu,
+  // MenuLi,
+  // MenuLiA,
   NavCag,
   NavLogo,
   SearchDiv,
@@ -38,20 +38,6 @@ const Categories = () => {
             <SearchInpImg src="/icons/search.svg" alt="Seach Icon" />
           </div>
         </SearchDiv>
-        <FoodMenu>
-          <MenuLi>
-            <MenuLiA>Todo</MenuLiA>
-          </MenuLi>
-          <MenuLi>
-            <MenuLiA>Guajolotas</MenuLiA>
-          </MenuLi>
-          <MenuLi>
-            <MenuLiA>Bebidas</MenuLiA>
-          </MenuLi>
-          <MenuLi>
-            <MenuLiA>Tamales</MenuLiA>
-          </MenuLi>
-        </FoodMenu>
         <ProductList />
       </section>
     </>
