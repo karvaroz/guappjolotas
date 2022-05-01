@@ -20,7 +20,7 @@ const Search = () => {
       );
       setProducts(productsFiltered);
     } else {
-      setProducts({})
+      setProducts(products);
     }
   };
 

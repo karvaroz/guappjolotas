@@ -18,6 +18,7 @@ import { BtnPay } from "../styles/selectFoodStyles";
 const Cart = () => {
   const [productsLength, setProductsLength] = useState(0);
   const { cartItems } = useContext(CartContext);
+
   useEffect(() => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
@@ -28,6 +29,7 @@ const Cart = () => {
     (previous, current) => previous + current.amount * current.price,
     0
   );
+  console.log(cartItems)
 
   return (
     <section>
@@ -43,10 +45,10 @@ const Cart = () => {
       </NavCart>
 
       <Cards>
-        {cartItems === 0 ? (
-          <div>"Tu carrito esta vacio"</div>
+        {cartItems !== 0 ? (
+          <p>No hay productos en el carrito</p>
         ) : (
-          cartItems.map((product) => (
+          cartItems?.map((product) => (
             <Card id={product.id}>
               <CardImg>
                 <img src={product.image} alt="" />
